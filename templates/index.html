@@ -20,7 +20,15 @@
         <a href="{{ url_for('member_detail', slug=member.slug) }}"
            class="hero-avatar {% if loop.first %}avatar-left{% elif loop.last %}avatar-right{% else %}avatar-center{% endif %}"
            style="--avatar-color: {{ member.color }};">
-            <div class="avatar-initials">{{ member.initials }}</div>
+            <div class="avatar-initials">
+                <img
+                    src="{{ url_for('static', filename=member.image) }}"
+                    alt="{{ member.name }}"
+                    class="hero-avatar-img"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                >
+                <span class="hero-initials-fallback" style="display:none;">{{ member.initials }}</span>
+            </div>
             <div class="avatar-role-badge">{{ member.role }}</div>
         </a>
         {% endfor %}
@@ -46,7 +54,13 @@
             <a href="{{ url_for('member_detail', slug=member.slug) }}" class="product-card member-card">
                 <div class="product-card-image member-card-image">
                     <div class="member-avatar-preview" style="--avatar-color: {{ member.color }};">
-                        <div class="member-avatar-initials">{{ member.initials }}</div>
+                        <img
+                            src="{{ url_for('static', filename=member.image) }}"
+                            alt="{{ member.name }}"
+                            class="member-card-img"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="member-avatar-initials member-initials-fallback" style="display:none;">{{ member.initials }}</div>
                     </div>
                     <div class="explore-btn">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="3"/><circle cx="16" cy="12" r="3"/></svg>

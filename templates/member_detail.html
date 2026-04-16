@@ -11,7 +11,13 @@
             <div class="detail-image-col">
                 <div class="detail-bag-wrap">
                     <div class="member-avatar-large" style="--avatar-color: {{ member.color }};">
-                        <div class="member-avatar-initials-lg">{{ member.initials }}</div>
+                        <img
+                            src="{{ url_for('static', filename=member.image) }}"
+                            alt="{{ member.name }}"
+                            class="member-profile-img"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="member-avatar-initials-lg member-initials-fallback" style="display:none;">{{ member.initials }}</div>
                         <div class="member-avatar-role-tag">{{ member.role | upper }}</div>
                     </div>
                     <div class="detail-deco-lines">
@@ -67,7 +73,13 @@
             <a href="{{ url_for('member_detail', slug=m.slug) }}" class="product-card member-card">
                 <div class="product-card-image member-card-image">
                     <div class="member-avatar-preview" style="--avatar-color: {{ m.color }};">
-                        <div class="member-avatar-initials">{{ m.initials }}</div>
+                        <img
+                            src="{{ url_for('static', filename=m.image) }}"
+                            alt="{{ m.name }}"
+                            class="member-card-img"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="member-avatar-initials member-initials-fallback" style="display:none;">{{ m.initials }}</div>
                     </div>
                 </div>
                 <div class="product-card-info">

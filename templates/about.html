@@ -20,13 +20,19 @@
             <div class="story-visual">
                 <div class="story-bag-stack">
                     <div class="stack-avatar" style="--avatar-color: #C63B2F; transform: rotate(-8deg) translate(-20px, 10px); z-index: 1;">
-                        <span class="stack-initials">AC</span>
+                        <img src="{{ url_for('static', filename='images/alex-chen.png') }}" alt="Alex Chen" class="stack-avatar-img"
+                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                        <span class="stack-initials" style="display:none;">AC</span>
                     </div>
                     <div class="stack-avatar" style="--avatar-color: #C4742A; transform: rotate(4deg); z-index: 2;">
-                        <span class="stack-initials">JR</span>
+                        <img src="{{ url_for('static', filename='images/jamie-rivera.png') }}" alt="Jamie Rivera" class="stack-avatar-img"
+                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                        <span class="stack-initials" style="display:none;">JR</span>
                     </div>
                     <div class="stack-avatar" style="--avatar-color: #1B3A6B; transform: rotate(12deg) translate(20px, 10px); z-index: 1;">
-                        <span class="stack-initials">SP</span>
+                        <img src="{{ url_for('static', filename='images/sam-patel.png') }}" alt="Sam Patel" class="stack-avatar-img"
+                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                        <span class="stack-initials" style="display:none;">SP</span>
                     </div>
                 </div>
             </div>
