@@ -29,7 +29,7 @@
                     <div>
                         <h3 class="product-name">{{ member.name }}</h3>
                         <p class="member-role-label member-role-label-lg">{{ member.role }}</p>
-                        <p class="product-desc-short">{{ member.bio[:80] }}...</p>
+                        <p class="product-desc-short">{{ member.bio[:80] }}{% if member.bio|length > 80 %}...{% endif %}</p>
                     </div>
                     <div class="product-card-foot">
                         <span class="product-tags">
