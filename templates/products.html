@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}All Products — Pop The Corn{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-text">
+            <h1 class="page-title">Buy <u>Popcorn</u></h1>
+            <p class="page-subtitle">All flavours. All delicious. All £2.99.</p>
+        </div>
+    </div>
+</section>
+
+<section class="products-section">
+    <div class="container">
+        <div class="product-grid product-grid-large">
+            {% for product in products %}
+            <a href="{{ url_for('product_detail', slug=product.slug) }}" class="product-card product-card-large">
+                <div class="product-card-image">
+                    <div class="bag-preview" style="--bag-color: {{ product.color }};">
+                        <div class="bag-preview-inner">
+                            <span class="bag-pop">POP</span>
+                            <span class="bag-the">THE<br><span class="bag-bars">IIII</span></span>
+                            <span class="bag-corn">CORN</span>
+                        </div>
+                        <div class="bag-preview-label">{{ product.name }}</div>
+                    </div>
+                    <div class="explore-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="3"/><circle cx="16" cy="12" r="3"/></svg>
+                        Explore
+                    </div>
+                </div>
+                <div class="product-card-info">
+                    <div>
+                        <h3 class="product-name">{{ product.name }}</h3>
+                        <div class="stars">
+                            {% for i in range(5) %}
+                            <span class="star {% if i < product.stars %}filled{% endif %}">★</span>
+                            {% endfor %}
+                            <span class="review-count">({{ product.review_count }})</span>
+                        </div>
+                        <p class="product-desc-short">{{ product.description[:80] }}...</p>
+                    </div>
+                    <div class="product-card-foot">
+                        <span class="product-price">£{{ "%.2f"|format(product.price) }}</span>
+                        <span class="product-tags">
+                            {% for tag in product.tags %}
+                            <span class="tag">{{ tag }}</span>
+                            {% endfor %}
+                        </span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
