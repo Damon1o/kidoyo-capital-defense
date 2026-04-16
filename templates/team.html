@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Meet the Team — Kidoyo Capital Defense{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-text">
+            <h1 class="page-title">Meet the <u>Team</u></h1>
+            <p class="page-subtitle">Five builders, one mission — ship something great.</p>
+        </div>
+    </div>
+</section>
+
+<section class="products-section">
+    <div class="container">
+        <div class="product-grid product-grid-large">
+            {% for member in members %}
+            <a href="{{ url_for('member_detail', slug=member.slug) }}" class="product-card product-card-large member-card">
+                <div class="product-card-image member-card-image">
+                    <div class="member-avatar-preview" style="--avatar-color: {{ member.color }};">
+                        <div class="member-avatar-initials">{{ member.initials }}</div>
+                    </div>
+                    <div class="explore-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="3"/><circle cx="16" cy="12" r="3"/></svg>
+                        Profile
+                    </div>
+                </div>
+                <div class="product-card-info">
+                    <div>
+                        <h3 class="product-name">{{ member.name }}</h3>
+                        <p class="member-role-label member-role-label-lg">{{ member.role }}</p>
+                        <p class="product-desc-short">{{ member.bio[:80] }}...</p>
+                    </div>
+                    <div class="product-card-foot">
+                        <span class="product-tags">
+                            {% for skill in member.skills[:3] %}
+                            <span class="tag">{{ skill }}</span>
+                            {% endfor %}
+                        </span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

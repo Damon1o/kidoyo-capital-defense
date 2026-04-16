@@ -1,50 +1,29 @@
 {% extends "base.html" %}
-{% block title %}Pop The Corn — Deliciously Unique French Popcorn{% endblock %}
+{% block title %}Kidoyo Capital Defense — Hackathon Team{% endblock %}
 {% block content %}
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-bg-text">POPCORN</div>
+    <div class="hero-bg-text">KCD</div>
     <div class="hero-content">
         <div class="hero-deco left">~</div>
         <h1 class="hero-title">
-            <span class="hero-line1">Deliciously Unique</span>
-            <span class="hero-line2"><u>French</u> Popcorn</span>
+            <span class="hero-line1">Kidoyo Capital</span>
+            <span class="hero-line2"><u>Defense</u></span>
         </h1>
         <div class="hero-deco right">~</div>
-        <a href="{{ url_for('products') }}" class="btn btn-dark">Find Out More</a>
+        <p class="hero-sub">Five coders. One team. Zero chill.</p>
+        <a href="{{ url_for('team') }}" class="btn btn-dark">Meet the Team</a>
     </div>
-    <div class="hero-bags">
-        <div class="bag bag-left" style="--bag-color: #C4742A;">
-            <div class="bag-inner">
-                <div class="bag-logo-wrap">
-                    <span class="bag-pop">POP</span>
-                    <span class="bag-the">THE<br><span class="bag-bars">IIII</span></span>
-                    <span class="bag-corn">CORN</span>
-                </div>
-                <div class="bag-label">Caramel Salt</div>
-            </div>
-        </div>
-        <div class="bag bag-center" style="--bag-color: #C63B2F;">
-            <div class="bag-inner">
-                <div class="bag-logo-wrap">
-                    <span class="bag-pop">POP</span>
-                    <span class="bag-the">THE<br><span class="bag-bars">IIII</span></span>
-                    <span class="bag-corn">CORN</span>
-                </div>
-                <div class="bag-label">Siracha Lime</div>
-            </div>
-        </div>
-        <div class="bag bag-right" style="--bag-color: #1B3A6B;">
-            <div class="bag-inner">
-                <div class="bag-logo-wrap">
-                    <span class="bag-pop">POP</span>
-                    <span class="bag-the">THE<br><span class="bag-bars">IIII</span></span>
-                    <span class="bag-corn">CORN</span>
-                </div>
-                <div class="bag-label">Truffle</div>
-            </div>
-        </div>
+    <div class="hero-avatars">
+        {% for member in members %}
+        <a href="{{ url_for('member_detail', slug=member.slug) }}"
+           class="hero-avatar {% if loop.first %}avatar-left{% elif loop.last %}avatar-right{% else %}avatar-center{% endif %}"
+           style="--avatar-color: {{ member.color }};">
+            <div class="avatar-initials">{{ member.initials }}</div>
+            <div class="avatar-role-badge">{{ member.role }}</div>
+        </a>
+        {% endfor %}
     </div>
     <div class="popcorn-scatter">
         <span class="kernel k1">✸</span>
@@ -60,28 +39,23 @@
     <div class="container">
         <div class="crew-header">
             <h2 class="section-title">Meet The Crew</h2>
-            <a href="{{ url_for('products') }}" class="btn btn-outline">View All Products</a>
+            <a href="{{ url_for('team') }}" class="btn btn-outline">View All Members</a>
         </div>
         <div class="product-grid">
-            {% for product in products %}
-            <a href="{{ url_for('product_detail', slug=product.slug) }}" class="product-card">
-                <div class="product-card-image">
-                    <div class="bag-preview" style="--bag-color: {{ product.color }};">
-                        <div class="bag-preview-inner">
-                            <span class="bag-pop">POP</span>
-                            <span class="bag-the">THE<br><span class="bag-bars">IIII</span></span>
-                            <span class="bag-corn">CORN</span>
-                        </div>
-                        <div class="bag-preview-label">{{ product.name }}</div>
+            {% for member in members %}
+            <a href="{{ url_for('member_detail', slug=member.slug) }}" class="product-card member-card">
+                <div class="product-card-image member-card-image">
+                    <div class="member-avatar-preview" style="--avatar-color: {{ member.color }};">
+                        <div class="member-avatar-initials">{{ member.initials }}</div>
                     </div>
                     <div class="explore-btn">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="3"/><circle cx="16" cy="12" r="3"/></svg>
-                        Explore
+                        Profile
                     </div>
                 </div>
                 <div class="product-card-info">
-                    <h3 class="product-name">{{ product.name }}</h3>
-                    <span class="product-price">£{{ "%.2f"|format(product.price) }}</span>
+                    <h3 class="product-name">{{ member.name }}</h3>
+                    <span class="member-role-label">{{ member.role }}</span>
                 </div>
             </a>
             {% endfor %}
@@ -93,9 +67,9 @@
 <section class="banner-strip">
     <div class="strip-inner">
         {% for i in range(8) %}
-        <span>✸ BORN IN FRANCE</span>
-        <span>✸ GOURMET POPCORN</span>
-        <span>✸ NATURALLY DELICIOUS</span>
+        <span>✸ HACKATHON READY</span>
+        <span>✸ FULL STACK TEAM</span>
+        <span>✸ SHIP FAST, SHIP PROUD</span>
         {% endfor %}
     </div>
 </section>
@@ -103,27 +77,27 @@
 <!-- WHY US -->
 <section class="why">
     <div class="container">
-        <h2 class="section-title centered">Why Pop The Corn?</h2>
+        <h2 class="section-title centered">What Makes Us Different?</h2>
         <div class="why-grid">
             <div class="why-card">
-                <div class="why-icon">🌽</div>
-                <h3>French Heritage</h3>
-                <p>Every kernel is sourced from the finest French corn fields. Quality you can taste.</p>
+                <div class="why-icon">⚡</div>
+                <h3>Speed</h3>
+                <p>We move fast. From idea to working prototype in hours — not days. That's the hackathon mindset.</p>
             </div>
             <div class="why-card">
-                <div class="why-icon">✨</div>
-                <h3>Bold Flavours</h3>
-                <p>We don't do boring. Each flavour is crafted to surprise and delight your palate.</p>
+                <div class="why-icon">🔧</div>
+                <h3>Full Stack</h3>
+                <p>Frontend, backend, ML, DevOps — we cover every layer of the stack. No gaps, no excuses.</p>
             </div>
             <div class="why-card">
-                <div class="why-icon">🌿</div>
-                <h3>Natural Ingredients</h3>
-                <p>No artificial nasties. Just real ingredients, real flavour, real popcorn.</p>
+                <div class="why-icon">🧠</div>
+                <h3>Creative Problem Solving</h3>
+                <p>We don't just code — we think. Every solution starts with understanding the real problem.</p>
             </div>
             <div class="why-card">
-                <div class="why-icon">📦</div>
-                <h3>Eco Packaging</h3>
-                <p>Our bags are made from recycled materials. Good for you, good for the planet.</p>
+                <div class="why-icon">🤝</div>
+                <h3>Team First</h3>
+                <p>Strong communication and mutual respect make us greater than the sum of our parts.</p>
             </div>
         </div>
     </div>
@@ -134,9 +108,9 @@
     <div class="container">
         <div class="cta-box">
             <div class="cta-deco">✸</div>
-            <h2>Ready to pop?</h2>
-            <p>Try all three flavours and discover your favourite.</p>
-            <a href="{{ url_for('products') }}" class="btn btn-dark">Shop Now</a>
+            <h2>Want to see what we've built?</h2>
+            <p>Check out our projects and hackathon submissions.</p>
+            <a href="{{ url_for('projects') }}" class="btn btn-dark">Our Projects</a>
         </div>
     </div>
 </section>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Pop The Corn — Deliciously Unique French Popcorn{% endblock %}</title>
+    <title>{% block title %}Kidoyo Capital Defense — Hackathon Team{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,32 +19,21 @@
     <!-- NAV -->
     <nav class="nav">
         <div class="nav-left">
-            <a href="{{ url_for('products') }}"
-                class="nav-link {% if request.endpoint == 'products' %}active{% endif %}">Buy Popcorn</a>
-            <a href="{{ url_for('our_story') }}"
-                class="nav-link {% if request.endpoint == 'our_story' %}active{% endif %}">Our Story</a>
-            <a href="{{ url_for('sustainability') }}"
-                class="nav-link {% if request.endpoint == 'sustainability' %}active{% endif %}">Sustainability</a>
+            <a href="{{ url_for('team') }}"
+                class="nav-link {% if request.endpoint == 'team' %}active{% endif %}">Meet the Team</a>
+            <a href="{{ url_for('projects') }}"
+                class="nav-link {% if request.endpoint == 'projects' %}active{% endif %}">Our Projects</a>
+            <a href="{{ url_for('about') }}"
+                class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">About Us</a>
         </div>
         <div class="nav-logo">
             <a href="{{ url_for('index') }}">
-                <span class="logo-pop">POP</span><span class="logo-sub">THE<br><span
-                        class="logo-bars">IIII</span></span><span class="logo-corn">CORN</span>
+                <span class="logo-pop">KCD</span>
             </a>
         </div>
         <div class="nav-right">
-            <a href="#" class="nav-link">Careers</a>
-            <a href="#" class="nav-link">Store Locator</a>
-            <a href="{{ url_for('cart') }}" class="nav-cart">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <path d="M16 10a4 4 0 01-8 0" />
-                </svg>
-                {% if cart_count > 0 %}
-                <span class="cart-badge">{{ cart_count }}</span>
-                {% endif %}
-            </a>
+            <a href="https://github.com" class="nav-link" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://devpost.com" class="nav-link" target="_blank" rel="noopener">Devpost</a>
         </div>
         <button class="nav-hamburger" id="navToggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -53,12 +42,11 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="{{ url_for('products') }}" class="mobile-link">Buy Popcorn</a>
-        <a href="{{ url_for('our_story') }}" class="mobile-link">Our Story</a>
-        <a href="{{ url_for('sustainability') }}" class="mobile-link">Sustainability</a>
-        <a href="#" class="mobile-link">Careers</a>
-        <a href="#" class="mobile-link">Store Locator</a>
-        <a href="{{ url_for('cart') }}" class="mobile-link">Cart ({{ cart_count }})</a>
+        <a href="{{ url_for('team') }}" class="mobile-link">Meet the Team</a>
+        <a href="{{ url_for('projects') }}" class="mobile-link">Our Projects</a>
+        <a href="{{ url_for('about') }}" class="mobile-link">About Us</a>
+        <a href="https://github.com" class="mobile-link" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://devpost.com" class="mobile-link" target="_blank" rel="noopener">Devpost</a>
     </div>
 
     <!-- PAGE CONTENT -->
@@ -70,18 +58,17 @@
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-logo">
-                <span class="logo-pop">POP</span><span class="logo-sub">THE<br><span
-                        class="logo-bars">IIII</span></span><span class="logo-corn">CORN</span>
+                <span class="logo-pop">KCD</span>
             </div>
-            <p class="footer-tagline">Deliciously unique. Born in France.</p>
+            <p class="footer-tagline">Kidoyo Capital Defense — Built by coders, for coders.</p>
             <div class="footer-links">
-                <a href="{{ url_for('products') }}">Buy Popcorn</a>
-                <a href="{{ url_for('our_story') }}">Our Story</a>
-                <a href="{{ url_for('sustainability') }}">Sustainability</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Contact</a>
+                <a href="{{ url_for('team') }}">Meet the Team</a>
+                <a href="{{ url_for('projects') }}">Our Projects</a>
+                <a href="{{ url_for('about') }}">About Us</a>
+                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://devpost.com" target="_blank" rel="noopener">Devpost</a>
             </div>
-            <p class="footer-copy">&copy; 2024 Pop The Corn. All rights reserved.</p>
+            <p class="footer-copy">&copy; 2024 Kidoyo Capital Defense. All rights reserved.</p>
         </div>
     </footer>
 

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}{{ member.name }} — Kidoyo Capital Defense{% endblock %}
+{% block content %}
+
+<section class="detail-section">
+    <div class="container">
+        <a href="{{ url_for('team') }}" class="back-link">← All Members</a>
+        <div class="detail-grid">
+
+            <!-- AVATAR COLUMN -->
+            <div class="detail-image-col">
+                <div class="detail-bag-wrap">
+                    <div class="member-avatar-large" style="--avatar-color: {{ member.color }};">
+                        <div class="member-avatar-initials-lg">{{ member.initials }}</div>
+                        <div class="member-avatar-role-tag">{{ member.role | upper }}</div>
+                    </div>
+                    <div class="detail-deco-lines">
+                        <span class="deco-line dl1"></span>
+                        <span class="deco-line dl2"></span>
+                        <span class="deco-line dl3"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INFO COLUMN -->
+            <div class="detail-info-col">
+                <div class="detail-info-top">
+                    <h1 class="detail-title">{{ member.name }}</h1>
+                    <span class="member-detail-role">{{ member.role }}</span>
+                </div>
+
+                <p class="detail-desc">{{ member.bio }}</p>
+
+                <div class="member-social-row">
+                    <a href="{{ member.github }}" class="btn btn-outline btn-sm" target="_blank" rel="noopener">GitHub ↗</a>
+                    <a href="{{ member.linkedin }}" class="btn btn-outline btn-sm" target="_blank" rel="noopener">LinkedIn ↗</a>
+                </div>
+
+                <div class="detail-tags">
+                    {% for skill in member.skills %}
+                    <span class="tag tag-lg">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+
+                <!-- FUN FACT -->
+                <div class="fun-fact-box">
+                    <span class="fun-fact-label">✸ Fun Fact</span>
+                    <p>{{ member.fun_fact }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LONG BIO -->
+        <div class="detail-long">
+            <h2>About {{ member.name }}</h2>
+            <p>{{ member.long_bio }}</p>
+        </div>
+    </div>
+</section>
+
+<!-- OTHER MEMBERS -->
+<section class="related-section">
+    <div class="container">
+        <h2 class="section-title">Rest of the Team</h2>
+        <div class="product-grid">
+            {% for m in others %}
+            <a href="{{ url_for('member_detail', slug=m.slug) }}" class="product-card member-card">
+                <div class="product-card-image member-card-image">
+                    <div class="member-avatar-preview" style="--avatar-color: {{ m.color }};">
+                        <div class="member-avatar-initials">{{ m.initials }}</div>
+                    </div>
+                </div>
+                <div class="product-card-info">
+                    <h3 class="product-name">{{ m.name }}</h3>
+                    <span class="member-role-label">{{ m.role }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
