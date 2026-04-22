@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% block title %}Hackathon — KidOYO Code Conquest{% endblock %}
+{% block content %}
+
+<section class="page-hero hackathon-hero">
+    <div class="container">
+        <div class="page-eyebrow">{{ org }} &mdash; {{ year }}</div>
+        <h1 class="page-title">The <u>Hackathon</u></h1>
+        <p class="page-subtitle">KidOYO Code Conquest &mdash; High School Division</p>
+    </div>
+</section>
+
+<!-- intro -->
+<section class="hack-intro-section">
+    <div class="container">
+        <div class="hack-intro-grid">
+            <div class="hack-intro-text">
+                <div class="hack-org-badge">
+                    <span class="hack-org-name">kidOYO</span>
+                    <span class="hack-org-sub">Code Conquest</span>
+                </div>
+                <h2>What Is Code Conquest?</h2>
+                <p>Code Conquest is an original hackathon community, game, and event structure created by
+                    <strong>KidOYO</strong> — New York's first K–12 School Hackathon League for both Middle School and
+                    High School divisions.</p>
+                <p>It challenges young hackers with creative computing problems in team-based events, blending real
+                    programming skill with strategic thinking. Teams from districts spanning Eastern Suffolk to Western
+                    Nassau compete across Long Island.</p>
+                <p>KidOYO is also a College Board–approved online provider of curriculum resources for the AP Computer
+                    Science Principles exam.</p>
+            </div>
+            <div class="hack-intro-aside">
+                <div class="hack-stat-block">
+                    <span class="hack-stat-num">HS</span>
+                    <span class="hack-stat-label">Division</span>
+                </div>
+                <div class="hack-stat-block">
+                    <span class="hack-stat-num">3 hrs</span>
+                    <span class="hack-stat-label">Competition Length</span>
+                </div>
+                <div class="hack-stat-block">
+                    <span class="hack-stat-num">8</span>
+                    <span class="hack-stat-label">Students Per Team</span>
+                </div>
+                <div class="hack-stat-block">
+                    <span class="hack-stat-num">LI</span>
+                    <span class="hack-stat-label">Long Island, NY</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hack-rules-section">
+    <div class="container">
+        <h2 class="section-title centered">How It Works</h2>
+        <div class="risk-explainer">
+            <div class="risk-icon">🎲</div>
+            <p class="risk-tagline">Formatted like the board game <strong>Risk</strong> — strategy meets code.</p>
+        </div>
+        <div class="rules-grid">
+            <div class="rule-card">
+                <div class="rule-num">01</div>
+                <h3>The Map</h3>
+                <p>Each team receives a digital game map divided into territories. The goal: claim as many territories
+                    as possible before time runs out.</p>
+            </div>
+            <div class="rule-card">
+                <div class="rule-num">02</div>
+                <h3>The Challenges</h3>
+                <p>Each territory holds a coding challenge. Teams must solve it using one of the accepted languages —
+                    Python, Java, Web (HTML/CSS/JS), Scratch/Hatch!, or Sprite Editor.</p>
+            </div>
+            <div class="rule-card">
+                <div class="rule-num">03</div>
+                <h3>Earning Territory</h3>
+                <p>An accurate solve earns that territory for your team and changes its color on the live map. But speed
+                    alone isn't everything — quality matters too.</p>
+            </div>
+            <div class="rule-card">
+                <div class="rule-num">04</div>
+                <h3>Adjacent Only</h3>
+                <p>Teams can only target territories adjacent to ones they already control, just like in Risk. Strategic
+                    map positioning is as important as coding ability.</p>
+            </div>
+            <div class="rule-card">
+                <div class="rule-num">05</div>
+                <h3>The Judges</h3>
+                <p>Judges evaluate all submissions. If a rival team's solution is deemed stronger, they can steal the
+                    territory — even if yours was technically correct.</p>
+            </div>
+            <div class="rule-card">
+                <div class="rule-num">06</div>
+                <h3>The Winner</h3>
+                <p>The team holding the most territories when time expires wins the event and claims the trophy.
+                    Come-from-behind victories are very much possible.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="banner-strip">
+    <div class="strip-inner">
+        {% for i in range(8) %}
+        <span>◈ KIDOYO CODE CONQUEST</span>
+        <span>◈ HIGH SCHOOL DIVISION</span>
+        <span>◈ LONG ISLAND, NEW YORK</span>
+        {% endfor %}
+    </div>
+</section>
+
+
+<section class="hack-skills-section">
+    <div class="container">
+        <h2 class="section-title">Accepted Languages</h2>
+        <p class="hack-skills-sub">Teams may submit solutions in any of the following languages. Choosing the right tool
+            for the challenge is part of the strategy.</p>
+        <div class="lang-grid">
+            <div class="lang-card lang-python">
+                <span class="lang-icon">🐍</span>
+                <span class="lang-name">Python</span>
+                <span class="lang-level">Intermediate / Advanced</span>
+            </div>
+            <div class="lang-card lang-java">
+                <span class="lang-icon">☕</span>
+                <span class="lang-name">Java</span>
+                <span class="lang-level">Intermediate / Advanced</span>
+            </div>
+            <div class="lang-card lang-web">
+                <span class="lang-icon">🌐</span>
+                <span class="lang-name">Web Dev</span>
+                <span class="lang-level">HTML · CSS · JavaScript</span>
+            </div>
+            <div class="lang-card lang-scratch">
+                <span class="lang-icon">🐱</span>
+                <span class="lang-name">Scratch / Hatch!</span>
+                <span class="lang-level">Beginner Friendly</span>
+            </div>
+            <div class="lang-card lang-sprite">
+                <span class="lang-icon">🎨</span>
+                <span class="lang-name">Sprite Editor</span>
+                <span class="lang-level">Creative Challenges</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- about section -->
+<section class="kidoyo-about-section">
+    <div class="container">
+        <div class="kidoyo-about-box">
+            <div class="kidoyo-logo-text">kidOYO</div>
+            <div class="kidoyo-about-content">
+                <h2>About KidOYO</h2>
+                <p>KidOYO is an educational technology platform built around the idea that <em>coding is a thinking
+                        skill</em>. Their philosophy is that the structured requirements of engineering effective and
+                    creative software build real intellectual discipline — not just technical proficiency.</p>
+                <p>Their Code Conquest hackathon platform is designed to bring that philosophy into a competitive,
+                    community setting. With events spanning K–12 and divisions for Elementary, Jr. High, and High
+                    School, KidOYO has built a first-of-its-kind regional league right here on Long Island.</p>
+                <p>The event is livestreamed, judged by computing educators, and brings together teams from across
+                    Nassau and Suffolk counties. It's as close as high school gets to a professional hackathon.</p>
+                <div class="kidoyo-links">
+                    <a href="https://kidoyo.com" target="_blank" class="btn btn-dark">kidoyo.com</a>
+                    <a href="https://codeconquest.oyoclass.com" target="_blank" class="btn btn-outline">Code
+                        Conquest</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

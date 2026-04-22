@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}BMCHSD Capital Defense — Mepham High School{% endblock %}
+{% block content %}
+
+<!-- hero section -->
+<section class="hero">
+    <div class="hero-bg-text">MEPHAM</div>
+    <div class="hero-content">
+        <div class="hero-eyebrow">BMCHSD &mdash; {{ year }} Hackathon</div>
+        <div class="hero-deco left">~</div>
+        <h1 class="hero-title">
+            <span class="hero-line1">Kernal</span>
+            <span class="hero-line2"><u>Error 41</u></span>
+        </h1>
+        <div class="hero-deco right">~</div>
+        <p class="hero-subtitle">Wellington C. Mepham High School</p>
+        <div class="hero-cta-row">
+            <a href="{{ url_for('team') }}" class="btn btn-dark">Meet The Team</a>
+            <a href="{{ url_for('hackathon') }}" class="btn btn-outline">Hackathon</a>
+        </div>
+    </div>
+    <div class="hero-bags">
+        {% for member in members %}
+        <a href="{{ url_for('member_detail', slug=member.slug) }}" class="bag bag-{{ loop.index }}"
+            style="--bag-color: {{ member.color }};">
+            <img src="{{ url_for('static', filename=member.image) }}" alt="{{ member.name }}" class="bag-img">
+            <div class="bag-label-overlay">{{ member.role.split('/')[0].strip() }}</div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="popcorn-scatter">
+        <span class="kernel k1">⬡</span>
+        <span class="kernel k2">⬡</span>
+        <span class="kernel k3">◈</span>
+        <span class="kernel k4">◈</span>
+        <span class="kernel k5">⬡</span>
+    </div>
+</section>
+
+
+<section class="crew">
+    <div class="container">
+        <div class="crew-header">
+            <h2 class="section-title">Meet The Crew</h2>
+            <a href="{{ url_for('team') }}" class="btn btn-outline">Full Roster</a>
+        </div>
+        <div class="product-grid">
+            {% for member in members %}
+            <a href="{{ url_for('member_detail', slug=member.slug) }}" class="product-card">
+                <div class="product-card-image" style="--card-color: {{ member.color }};">
+                    <img src="{{ url_for('static', filename=member.image) }}" alt="{{ member.name }}"
+                        class="bag-preview-img">
+                    <div class="card-role-badge">{{ member.role.split('/')[0].strip() }}</div>
+                    <div class="explore-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="8" cy="12" r="3" />
+                            <circle cx="16" cy="12" r="3" />
+                        </svg>
+                        Profile
+                    </div>
+                </div>
+                <div class="product-card-info">
+                    <h3 class="product-name">{{ member.name }}</h3>
+                    <span class="member-grade">{{ member.grade }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<section class="banner-strip">
+    <div class="strip-inner">
+        {% for i in range(8) %}
+        <span>◈ MEPHAM HIGH SCHOOL</span>
+        <span>◈ BMCHSD HACKATHON</span>
+        <span>◈ CAPITAL DEFENSE {{ year }}</span>
+        {% endfor %}
+    </div>
+</section>
+
+
+<section class="why">
+    <div class="container">
+        <h2 class="section-title centered">By The Numbers</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">👾</div>
+                <h3>4 Members</h3>
+                <p>A tight-knit, multidisciplinary team covering design, development, data, and DevOps.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🏫</div>
+                <h3>1 School</h3>
+                <p>Proudly representing Wellington C. Mepham High School and the BMCHSD community.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">💻</div>
+                <h3>1000+ Hours</h3>
+                <p>Combined hours of coding, designing, researching, and refining our solution.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🏆</div>
+                <h3>One Goal</h3>
+                <p>To build something that matters and defend it with everything we've got.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- call to action -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <div class="cta-deco">◈</div>
+            <h2>Ready to<br>defend?</h2>
+            <p>Explore our project and get to know the team behind it.</p>
+            <div class="hero-cta-row">
+                <a href="{{ url_for('hackathon') }}" class="btn btn-dark">The Hackathon</a>
+                <a href="{{ url_for('team') }}" class="btn btn-outline">Meet Everyone</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

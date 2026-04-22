@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}The Team — BMCHSD Capital Defense{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-text">
+            <div class="page-eyebrow">{{ org }} &mdash; {{ team }}</div>
+            <h1 class="page-title">The <u>Team</u></h1>
+            <p class="page-subtitle">Four minds. One mission. Wellington C. Mepham High School.</p>
+        </div>
+    </div>
+</section>
+
+<section class="products-section">
+    <div class="container">
+        <div class="product-grid product-grid-large">
+            {% for member in members %}
+            <a href="{{ url_for('member_detail', slug=member.slug) }}" class="product-card product-card-large">
+                <div class="product-card-image" style="--card-color: {{ member.color }};">
+                    <img src="{{ url_for('static', filename=member.image) }}" alt="{{ member.name }}" class="bag-preview-img">
+                    <div class="card-role-badge">{{ member.role.split('/')[0].strip() }}</div>
+                    <div class="explore-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="12" r="3"/><circle cx="16" cy="12" r="3"/></svg>
+                        Profile
+                    </div>
+                </div>
+                <div class="product-card-info">
+                    <div>
+                        <h3 class="product-name">{{ member.name }}</h3>
+                        <p class="member-role-full">{{ member.role }}</p>
+                        <div class="stars">
+                            {% for i in range(5) %}
+                            <span class="star {% if i < member.stars %}filled{% endif %}">★</span>
+                            {% endfor %}
+                            <span class="review-count">({{ member.fact_count }} pts)</span>
+                        </div>
+                        <p class="product-desc-short">{{ member.bio[:100] }}...</p>
+                    </div>
+                    <div class="product-card-foot">
+                        <span class="product-price member-grade-badge">{{ member.grade }}</span>
+                        <span class="product-tags">
+                            {% for tag in member.tags %}
+                            <span class="tag">{{ tag }}</span>
+                            {% endfor %}
+                        </span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

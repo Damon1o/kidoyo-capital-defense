@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Mepham High School — BMCHSD Capital Defense{% endblock %}
+{% block content %}
+
+<!-- mepham hero -->
+<section class="mepham-hero">
+    <div class="mepham-img-wrap">
+        <img src="{{ url_for('static', filename='images/mepham-building.png') }}"
+            alt="Wellington C. Mepham High School Building" class="mepham-building-img">
+        <div class="mepham-img-overlay"></div>
+        <div class="mepham-hero-text">
+            <div class="page-eyebrow">{{ org }}</div>
+            <h1 class="mepham-title">Wellington C.<br><u>Mepham</u><br>High School</h1>
+            <p class="mepham-location">Bellmore, New York</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="mepham-section">
+    <div class="container">
+        <div class="mepham-intro-grid">
+            <div class="mepham-intro-text">
+                <h2>Our School</h2>
+                <p>Wellington C. Mepham High School is a proud part of the Bellmore-Merrick Central High School District
+                    (BMCHSD), located in Bellmore, New York. Known for its strong academic programs, vibrant
+                    extracurriculars, and a community-first culture, Mepham has long been a launchpad for student
+                    success.</p>
+                <p>From athletics to the arts, and now competitive coding — Mepham students consistently rise to the
+                    challenge. Our Capital Defense hackathon team is no exception, representing the school on a regional
+                    stage against the best young hackers on Long Island.</p>
+            </div>
+            <div class="mepham-stat-col">
+                <div class="mepham-stat">
+                    <span class="mepham-stat-num">BMCHSD</span>
+                    <span class="mepham-stat-label">Our District</span>
+                </div>
+                <div class="mepham-stat">
+                    <span class="mepham-stat-num">Bellmore</span>
+                    <span class="mepham-stat-label">New York</span>
+                </div>
+                <div class="mepham-stat">
+                    <span class="mepham-stat-num">9–12</span>
+                    <span class="mepham-stat-label">Grade Levels</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mepham-wide-photo">
+            <img src="{{ url_for('static', filename='images/mepham-building.png') }}"
+                alt="Wellington C. Mepham High School" class="mepham-wide-img">
+            <div class="mepham-wide-caption">Wellington C. Mepham High School — Bellmore, NY</div>
+        </div>
+    </div>
+</section>
+
+<!-- stats banner strip -->
+<section class="banner-strip">
+    <div class="strip-inner">
+        {% for i in range(8) %}
+        <span>◈ WELLINGTON C. MEPHAM</span>
+        <span>◈ Bellmore, NEW YORK</span>
+        <span>◈ BELLMORE-MERRICK CSD</span>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

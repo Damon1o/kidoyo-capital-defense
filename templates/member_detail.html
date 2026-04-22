@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}{{ member.name }} — BMCHSD Capital Defense{% endblock %}
+{% block content %}
+
+<section class="detail-section">
+    <div class="container">
+        <a href="{{ url_for('team') }}" class="back-link">← All Members</a>
+        <div class="detail-grid">
+
+            <!-- detail images -->
+            <div class="detail-image-col">
+                <div class="detail-bag-wrap" style="--card-color: {{ member.color }};">
+                    <img src="{{ url_for('static', filename=member.image) }}" alt="{{ member.name }}"
+                        class="bag-large-img">
+                    <div class="member-color-strip" style="background: {{ member.color }};"></div>
+                    <div class="detail-deco-lines">
+                        <span class="deco-line dl1"></span>
+                        <span class="deco-line dl2"></span>
+                        <span class="deco-line dl3"></span>
+                    </div>
+                </div>
+                <div class="member-weapon-card">
+                    <span class="weapon-label">Weapon of Choice</span>
+                    <span class="weapon-value">{{ member.weapon }}</span>
+                </div>
+            </div>
+
+
+            <div class="detail-info-col">
+                <div class="detail-info-top">
+                    <div>
+                        <h1 class="detail-title">{{ member.name }}</h1>
+                        <p class="detail-subtitle">{{ member.role }}</p>
+                    </div>
+                    <span class="detail-price">{{ member.grade }}</span>
+                </div>
+
+                <div class="detail-stars">
+                    {% for i in range(5) %}
+                    <span class="star {% if i < member.stars %}filled{% endif %}">★</span>
+                    {% endfor %}
+                    <span class="review-count">{{ member.fact_count }} contribution points</span>
+                </div>
+
+                <p class="detail-desc">{{ member.bio }}</p>
+
+                <div class="detail-tags">
+                    {% for tag in member.tags %}
+                    <span class="tag tag-lg">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+
+
+                <div class="nutrition-section">
+                    <h2 class="nutrition-title">Fun Facts</h2>
+                    {% for fact in member.fun_facts %}
+                    <div class="nutrition-row">
+                        <div class="nutrition-label-wrap">
+                            <span class="nutrition-label">{{ fact.label }}</span>
+                            <span class="nutrition-value">{{ fact.value }}</span>
+                        </div>
+                        <span class="nutrition-percent fact-bar-wrap">
+                            <span class="fact-bar"
+                                style="width: {{ fact.percent }}%; background: {{ member.color }};"></span>
+                            <span class="fact-pct">{{ fact.percent }}%</span>
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="detail-long">
+            <h2>About {{ member.name.split()[0] }}</h2>
+            <p>{{ member.long_bio }}</p>
+        </div>
+    </div>
+</section>
+
+<!-- related links -->
+<section class="related-section">
+    <div class="container">
+        <h2 class="section-title">Also On The Team</h2>
+        <br>
+        <div class="product-grid">
+            {% for m in related %}
+            <a href="{{ url_for('member_detail', slug=m.slug) }}" class="product-card">
+                <div class="product-card-image" style="--card-color: {{ m.color }};">
+                    <img src="{{ url_for('static', filename=m.image) }}" alt="{{ m.name }}" class="bag-preview-img">
+                    <div class="card-role-badge">{{ m.role.split('/')[0].strip() }}</div>
+                </div>
+                <div class="product-card-info">
+                    <h3 class="product-name">{{ m.name }}</h3>
+                    <span class="member-grade">{{ m.grade }}</span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

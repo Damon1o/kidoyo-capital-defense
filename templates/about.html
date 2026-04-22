@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}About — BMCHSD Capital Defense{% endblock %}
+{% block content %}
+
+<section class="page-hero page-hero-story">
+    <div class="container">
+        <div class="page-eyebrow">{{ org }}</div>
+        <h1 class="page-title">About <u>Us</u></h1>
+        <p class="page-subtitle">From a classroom in Bellmore to the hackathon stage.</p>
+    </div>
+</section>
+
+<section class="story-section">
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-text">
+                <h2>Where It Started</h2>
+                <p>Wellington C. Mepham High School has always been a place that pushes students to think beyond the
+                    textbook. It was in these halls that our team came together, united by a shared love of technology
+                    and a desire to build something that actually matters.</p>
+                <p>As part of the BMCHSD community, we entered the Capital Defense hackathon with one goal: to design,
+                    build, and defend a solution that makes a real impact. What started as an after-school idea became a
+                    full-stack project backed by months of research and late nights.</p>
+            </div>
+            <div class="story-visual">
+                <div class="school-badge-large">
+                    <div class="school-badge-inner">
+                        <span class="badge-org">BMCHSD</span>
+                        <span class="badge-divider">—</span>
+                        <span class="badge-school">Wellington C.<br>Mepham</span>
+                        <span class="badge-year">{{ year }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-timeline">
+            <div class="timeline-item">
+                <span class="timeline-year">Sep</span>
+                <div class="timeline-content">
+                    <h3>Team Formed</h3>
+                    <p>Four students decide to enter the hackathon. The brainstorming begins.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">Oct</span>
+                <div class="timeline-content">
+                    <h3>Research Phase</h3>
+                    <p>Deep dive into the problem space. Stakeholder interviews, data collection, analysis.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">Jan</span>
+                <div class="timeline-content">
+                    <h3>Build Sprint</h3>
+                    <p>Hundreds of commits, dozens of design iterations, countless cups of coffee.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-year">Now</span>
+                <div class="timeline-content">
+                    <h3>Capital Defense</h3>
+                    <p>We're here. Ready to present, ready to defend, ready to win.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
